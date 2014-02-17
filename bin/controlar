@@ -2,4 +2,6 @@
 
 require 'controlar'
 
+trap(:INT) { exit }
+
 Controlar.run!
