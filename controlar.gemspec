@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Controlar::VERSION
   spec.authors       = ["Nik Markwell"]
   spec.email         = ["nik@duckinator.net"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Voice control for Linux}
+  spec.summary       = spec.description
+  spec.homepage      = "https://github.com/duckinator/controlar"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
