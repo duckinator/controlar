@@ -3,10 +3,10 @@ require 'open3'
 require 'pp'
 
 module Controlar
-  class SpeechAPI
+  class Speech
     API_URL = 'https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US'
 
-    def self.transcribe!
+    def self.get_text
       self.new.transcribe!
     end
 

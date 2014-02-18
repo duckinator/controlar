@@ -1,5 +1,5 @@
 require 'controlar/version'
-require 'controlar/speech_api'
+require 'controlar/speech'
 
 module Controlar
   CONFIG_DIR = File.join(ENV['HOME'], '.controlar')
@@ -23,7 +23,7 @@ module Controlar
 
       loop do
         print "Waiting for input... "
-        results = Controlar::SpeechAPI.transcribe!
+        results = Controlar::Speech.get_text
         puts "Done!"
         handle(results.most_likely)
       end
