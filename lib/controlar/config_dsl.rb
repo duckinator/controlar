@@ -37,7 +37,6 @@ module Controlar
     end
 
     def self.run(text)
-      puts ">> #{text}"
       possible_dispatches = @@dispatch.find_all {|k, v| text =~ k}
 
       if possible_dispatches.length > 1
@@ -46,14 +45,13 @@ module Controlar
       elsif possible_dispatches.length == 1
         regexp, command = possible_dispatches.first
 
-        puts "Running command:  #{command}."
+        $stderr.puts "Running command:  #{command}." if $DEBUG
 
         matches = regexp.match(text)
 
         @@commands[command].call(*matches.to_a)
 
-        puts "Finished command: #{command}."
-        puts
+        $stderr.puts "Finished command: #{command}." if $DEBUG
       end
     end
   end
