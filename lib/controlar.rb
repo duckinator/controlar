@@ -20,14 +20,29 @@ module Controlar
       load_config!
 
       loop do
-        print "Waiting for input... "
-        results = Recognizer.get_text!
-        puts "Done!"
-        Config.run(results.most_likely)
+        result = prompt { Recognizer.get_text! }
+
+        Config.run(result)
       end
     end
 
     private
+    def prompt(&block)
+      if Recognizer == Recognizers::Text
+        "> "
+      else
+        "Waiting for input... "
+      end
+
+      ret = yield block
+
+      if Recognizer != Recognizers::Text
+        "Done!"
+      end
+
+      ret
+    end
+
     def load_config!
       unless File.exist?(CONFIG_FILE)
         $stderr.puts "Configuration file (#{CONFIG_FILE}) does not exist."
