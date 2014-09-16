@@ -9,7 +9,7 @@ module Controlar
   CONFIG_FILE = ENV['CONTROLAR_CONFIG'] || File.join(DEFAULT_CONFIG_DIR, 'config.rb')
 
   Synthesizer = Synthesizers::Festival
-  Recognizer  = Recognizers::Google
+  Recognizer  = Recognizers::Text
 
   class << self
     def config(&block)
