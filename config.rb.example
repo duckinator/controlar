@@ -1,0 +1,39 @@
+# vim: set ft=ruby:
+
+Controlar.config do
+
+#  context :main do
+    command :hello do |raw|
+      say "Hello, world!"
+    end
+
+    command :say do |raw, text|
+      say text.split(' ').drop(1).join(' ')
+    end
+
+    command :named_alarm do |name, time|
+      Controlar::Events.at(time, 'alarm/' + name)
+      say "I have set an alarm for #{name} at #{time}."
+    end
+
+    command :alarm do |time|
+      if Controlar::Events.include?(:default)
+#        enter :unamed_alarm
+        say "meep"
+      else
+        Controlar::Events.at(time, :default)
+        say "I have set an alarm for #{time}."
+      end
+    end
+
+    on  /hello|hey|hi/ => :hello,
+        /say (.*)/     => :say,
+        /set (?:a reminder|an? alarm) for (.*) at (.*)/ => :named_alarm,
+        /set (?:a reminder|an? alarm) for (.*)/ => :alarm
+#  end
+
+#  context :unamed_alarm do
+#    
+#  end
+
+end
