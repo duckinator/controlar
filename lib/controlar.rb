@@ -1,5 +1,5 @@
 require 'controlar/version'
-require 'controlar/config'
+require 'controlar/config_dsl'
 require 'controlar/events'
 require 'controlar/synthesizers'
 require 'controlar/recognizers'
@@ -13,7 +13,7 @@ module Controlar
 
   class << self
     def config(&block)
-      Config.new.configure!(&block)
+      ConfigDSL.new.configure!(&block)
     end
 
     def run!
@@ -22,7 +22,7 @@ module Controlar
       loop do
         result = prompt { Recognizer.get_text! }
 
-        Config.run(result)
+        ConfigDSL.run(result)
       end
     end
 

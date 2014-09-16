@@ -1,7 +1,7 @@
 require 'default'
 
 module Controlar
-  class Config
+  class ConfigDSL
     @@commands = {}
     @@dispatch = {}
 
