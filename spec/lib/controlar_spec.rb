@@ -11,7 +11,7 @@ describe Controlar do
   describe '.shutdown!' do
     let(:shutdown!) { described_class.shutdown! }
 
-    it 'calles' do
+    it 'calles the Kernal exit' do
       expect(described_class).to receive(:exit)
       shutdown!
     end
