@@ -23,10 +23,9 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'chronic'
   spec.add_runtime_dependency 'timers', '~> 4.0'
   spec.add_runtime_dependency 'default'
-
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rspec', "~> 3.1"
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'simplecov'
 end
