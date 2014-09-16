@@ -3,12 +3,17 @@
 Controlar.config do
 
 #  context :main do
+    command :exit do |raw|
+      say "Goodbye."
+      Controlar.shutdown!
+    end
+
     command :hello do |raw|
       say "Hello, world!"
     end
 
     command :say do |raw, text|
-      say text.split(' ').drop(1).join(' ')
+      say text
     end
 
     command :named_alarm do |name, time|
@@ -26,10 +31,11 @@ Controlar.config do
       end
     end
 
-    on  /hello|hey|hi/ => :hello,
-        /say (.*)/     => :say,
-        /set (?:a reminder|an? alarm) for (.*) at (.*)/ => :named_alarm,
-        /set (?:a reminder|an? alarm) for (.*)/ => :alarm
+    on  /^exit/ => :exit,
+        /^hello|^hey|^hi/ => :hello,
+        /^say (.*)/     => :say,
+        /^set (?:a reminder|an? alarm) for (.*) at (.*)/ => :named_alarm,
+        /^set (?:a reminder|an? alarm) for (.*)/ => :alarm
 #  end
 
 #  context :unamed_alarm do
