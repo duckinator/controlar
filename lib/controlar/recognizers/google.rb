@@ -23,7 +23,7 @@ module Controlar::Recognizers
       tmp = self.new
       tmp.record!
       tmp.transcribe!
-      tmp
+      tmp.most_likely
     end
 
     def initialize
