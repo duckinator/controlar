@@ -41,14 +41,16 @@ module Controlar
       possible_dispatches = @@dispatch.find_all {|k, v| text =~ k}
 
       if possible_dispatches.length > 1
-        say "More than one command matched what you said."
+        Synthesizer.say "More than one command matched what you said."
+        $stderr.puts "Commands matched: #{possible_dispatches.join(', ')}"
       elsif possible_dispatches.length == 1
         regexp, command = possible_dispatches.first
 
         puts "Running command:  #{command}."
 
         matches = regexp.match(text)
-        @@commands[command].call(text, matches)
+
+        @@commands[command].call(*matches.to_a)
 
         puts "Finished command: #{command}."
         puts
