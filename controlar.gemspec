@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'festivaltts4r'
   spec.add_runtime_dependency 'chronic'
   spec.add_runtime_dependency 'timers', '~> 4.0'
+  spec.add_runtime_dependency 'default'
 
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake'
