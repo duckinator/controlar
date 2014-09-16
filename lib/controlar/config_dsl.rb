@@ -25,7 +25,7 @@ module Controlar
 
     def on(regexp, command=default)
       if regexp.is_a?(Hash) && command.default?
-        return regexp.map(&method(:on))
+        return regexp.map{|rgxp, cmd| on(rgxp, cmd)}
       end
 
       @@dispatch[regexp] = command
