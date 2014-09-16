@@ -26,6 +26,10 @@ module Controlar
       end
     end
 
+    def shutdown!
+      exit
+    end
+
     private
     def prompt(&block)
       if Recognizer == Recognizers::Text
