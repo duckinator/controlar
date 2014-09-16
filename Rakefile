@@ -1,10 +1,10 @@
 #!/usr/bin/env rake
 
-require "bundler/gem_tasks"
-require "rspec/core/rake_task"
+require 'bundler/gem_tasks'
+require 'rspec/core/rake_task'
 
-desc "Run all the tests in spec"
+desc 'Run all the tests in spec'
 RSpec::Core::RakeTask.new(:spec)
 
-desc "Default: run tests and generate docs"
+desc 'Default: run tests and generate docs'
 task default: :spec
