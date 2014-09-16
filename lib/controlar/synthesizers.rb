@@ -1,0 +1,2 @@
+require 'controlar/synthesizers/festival'
+
