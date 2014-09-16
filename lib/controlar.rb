@@ -8,7 +8,7 @@ module Controlar
   DEFAULT_CONFIG_DIR = File.join(ENV['HOME'], '.controlar')
   CONFIG_FILE = ENV['CONTROLAR_CONFIG'] || File.join(DEFAULT_CONFIG_DIR, 'config.rb')
 
-  Synthesizer = Synthesizers::Festival
+  Synthesizer = Synthesizers::Text
   Recognizer  = Recognizers::Text
 
   class << self
